@@ -24,5 +24,7 @@ public class FraUgua {
      * ./gradlew build
      * e poi questo con i parametri alla fine
      * java -cp build/classes/java/main it.unimi.di.prog2.h03.FraUgua 1 2 2 4
+     * per fare il controllo bisognoa fare moltiplicazioni come alle elementari
+     * a * d == b * c
      */
 }
