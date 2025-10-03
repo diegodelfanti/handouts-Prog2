@@ -24,7 +24,7 @@ package it.unimi.di.prog2.e03;
 /** Classe per la somma di importi in centesimi. */
 public class SommaCentesimi {
 
-  /** Costruttore privato per impedire l'instanziazione. */
+  /** Costruttore privato per impedire l'istanziazione. */
   private SommaCentesimi() {}
 
   /**

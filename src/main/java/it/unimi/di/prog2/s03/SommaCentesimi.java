@@ -19,26 +19,31 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 */
 
-package it.unimi.di.prog2.h03;
+package it.unimi.di.prog2.s03;
 
-/** Classe per la verifica dell'uguaglianza tra frazioni. */
-public class UguaglianzaFrazioni {
+import java.util.Scanner;
+
+/** Classe per la somma di importi in centesimi. */
+public class SommaCentesimi {
 
   /** . */
-  private UguaglianzaFrazioni() {}
+  private SommaCentesimi() {}
 
   /**
-   * Riceve come parametri sulla linea di comando quattro interi corrispondenti rispettivamente a
-   * numeratore e denominatore di due frazioni ed emette nel flusso d'uscita "uguali" se le frazioni
-   * sono uguali, oppure "diverse".
+   * Legge dal flusso di ingresso un elenco di importi in euro e centesimi (uno per riga, con la
+   * parte decimale separata dalla parte intera da un punto) e ne emette nel flusso d'uscita la
+   * somma.
    *
-   * @param args i quattro interi
+   * @param args gli argomenti (ignorati) della riga di comando
    */
   public static void main(String[] args) {
-    int a = Integer.parseInt(args[0]);
-    int b = Integer.parseInt(args[1]);
-    int c = Integer.parseInt(args[2]);
-    int d = Integer.parseInt(args[3]);
-    System.out.println((double) a / b == (double) c / d ? "uguali" : "diverse");
+    int cents = 0;
+    try (Scanner sc = new Scanner(System.in)) {
+      while (sc.hasNextLine()) {
+        String parts[] = sc.nextLine().split("\\.");
+        cents += 100 * Integer.parseInt(parts[0]) + Integer.parseInt(parts[1]);
+      }
+      System.out.println(cents / 100 + "." + (cents % 100 < 10 ? "0" : "") + cents % 100);
+    }
   }
 }
